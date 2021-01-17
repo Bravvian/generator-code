@@ -1,0 +1,48 @@
+<div style="text-align: center">
+  <p>
+    <span matBadge="&#8288;"
+          matBadgePosition="before"
+          matBadgeOverlap="false"
+          matBadgeSize="small"
+          matBadgeColor="warn">Live</span>
+  </p>
+  <button [disabled]="true">Your Code: {{code}}</button>
+</div>
+
+<mat-form-field style="padding-right: 10px" appearance="outline">
+  <mat-label>Payment</mat-label>
+  <input matInput type="text" [(ngModel)]="payment">
+</mat-form-field>
+
+<mat-form-field style="padding-right: 10px" appearance="outline">
+  <mat-label>Amount</mat-label>
+  <input matInput type="number" [(ngModel)]="amount">
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="addPayment()">+ ADD</button>
+
+<table mat-table [dataSource]="tableDataSource">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> Amount</th>
+    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> Code</th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="grid">
+    <th mat-header-cell *matHeaderCellDef> Grid</th>
+    <td mat-cell *matCellDef="let element"> {{element.grid}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

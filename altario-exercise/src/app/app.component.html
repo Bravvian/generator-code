@@ -1,0 +1,10 @@
+<mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+  <mat-tab label="Generator Page">
+    <app-generator-page (newEvent)="getCode($event)"></app-generator-page>
+  </mat-tab>
+  <mat-tab label="Payments Page">
+    <app-payments-page [code]="code"
+                       [grid]="grid"
+    ></app-payments-page>
+  </mat-tab>
+</mat-tab-group>
