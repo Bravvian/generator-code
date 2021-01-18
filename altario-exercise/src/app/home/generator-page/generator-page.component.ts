@@ -84,7 +84,7 @@ export class GeneratorPageComponent implements OnInit {
   getPositions(){
     const number = ('0' + new Date().getSeconds()).slice(-2);
     let position1 = Array.from(number, Number);
-    console.log(number)
+
     const position2 = [position1[1], position1[0]];
 
     return [position1, position2];
