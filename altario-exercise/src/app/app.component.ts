@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   code: string;
-  grid: number = 2;
+  grid: number = 64;
   title = 'altario-exercise';
 
   getCode(event){
