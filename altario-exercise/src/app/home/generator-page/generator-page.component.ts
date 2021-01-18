@@ -59,7 +59,7 @@ export class GeneratorPageComponent implements OnInit {
   }
 
   randomCharacter(){
-    return String.fromCharCode(65+Math.floor(Math.random() * 26));
+    return Math.random().toString(20).substr(2, 1);
   }
 
   getRandom(input = []){
@@ -82,9 +82,8 @@ export class GeneratorPageComponent implements OnInit {
   }
 
   getPositions(){
-    const number = ('0' + new Date().getSeconds()).slice(-2);
-    let position1 = Array.from(number, Number);
-    console.log(number)
+    const number = new Date().getSeconds();
+    let position1 = Array.from(String(number), Number)
     const position2 = [position1[1], position1[0]];
 
     return [position1, position2];
@@ -93,7 +92,7 @@ export class GeneratorPageComponent implements OnInit {
   countCharacter(character: string){
     let count = 0
     this.gridData.forEach((element)=>{
-      if (element.toLowerCase() === character.toLowerCase()){
+      if (element.toLowerCase() === character){
         count += 1
       }
     });
