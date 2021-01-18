@@ -84,6 +84,11 @@ export class GeneratorPageComponent implements OnInit {
   getPositions(){
     const number = new Date().getSeconds();
     let position1 = Array.from(String(number), Number)
+
+    if (position1[0] + position1[1] >= 9){
+      position1[0] = Math.ceil(position1[0]/2)
+      position1[1] = Math.ceil(position1[1]/2)
+    }
     const position2 = [position1[1], position1[0]];
 
     return [position1, position2];
@@ -96,6 +101,6 @@ export class GeneratorPageComponent implements OnInit {
         count += 1
       }
     });
-    return count > 9 ? Math.ceil(count/2) : count
+    return count;
   }
 }
